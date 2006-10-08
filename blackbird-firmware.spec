@@ -1,0 +1,66 @@
+#
+# Conditional build:
+%bcond_with     license_agreement       # generates package
+#
+Summary:	Firmware for the MPEG-2 encoding on cx23416 cards (cx88-blackbird)
+Summary(pl):	Firmware dla enkodera MPEG-2 na kartach z uk³adem cx23416 (cx88-blackbird)
+Name:		blackbird-firmware
+Version:	2.05.032
+%define         _rel    1
+Release:	%{_rel}%{?with_license_agreement:wla}
+License:	Publicly available but license unknown
+Group:		System Environment/Kernel
+######		Unknown group!
+%if %{with license_agreement}
+Source0:	ftp://ftp.hauppauge.com/Support/PVR250/beta/pvr150250350_inf.zip
+# Source0-md5:	6582c050642b442e9a614c0cca5d41aa
+%endif
+URL:		http://ivtvdriver.org/index.php/Firmware
+BuildArch:	noarch
+BuildRequires:	unzip
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+This package contains the firmware for the MPEG-2 encoder on the
+cx23416 based TV tuner/PVR cards supported by cx88-blackbird driver.
+%if %{without license_agreement}
+This package does not include the firmware. You should build the 
+package yourself with "--with license_agreement" and install the wla 
+release.
+%endif
+
+%description -l pl
+Ten pakiet zawiera firmware sprzêtowego encodera MPEG-2 obs³ugiwanych
+przez sterownik cx88-blackbird kart telewizyjnych opartych ba uk³adzie
+cx23416.
+%if %{without license_agreement}
+Ten pakiet nie zawiera firmware. Powiniene¶ zbudowaæ pakiet w³asnorêcznie
+z opcj± "--with license_agreement" i zainstalowaæ wersjê wla.
+%endif
+
+%prep
+# setup -q -n %{name}-%{version}
+rm -rf %{name}-%{version}
+mkdir %{name}-%{version}
+cd %{name}-%{version}
+%if %{with license_agreement}
+unzip -q %{SOURCE0} HcwFalcn.rom
+%endif
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/lib/firmware
+
+%if %{with license_agreement}
+cd %{name}-%{version}
+install HcwFalcn.rom $RPM_BUILD_ROOT/lib/firmware/blackbird-fw-enc.bin
+%endif
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%if %{with license_agreement}
+/lib/firmware/blackbird-fw-enc.bin
+%endif
