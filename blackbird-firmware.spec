@@ -23,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This package contains the firmware for the MPEG-2 encoder on the
 cx23416 based TV tuner/PVR cards supported by cx88-blackbird driver.
-%if %{without license_agreement}
+%if !%{with license_agreement}
 This package does not include the firmware. You should build the 
 package yourself with "--with license_agreement" and install the wla 
 release.
@@ -33,7 +33,7 @@ release.
 Ten pakiet zawiera firmware sprzêtowego kodera MPEG-2 obs³ugiwanych
 przez sterownik cx88-blackbird kart telewizyjnych opartych ba uk³adzie
 cx23416.
-%if %{without license_agreement}
+%if !%{with license_agreement}
 Ten pakiet nie zawiera firmware. Powiniene¶ zbudowaæ pakiet w³asnorêcznie
 z opcj± "--with license_agreement" i zainstalowaæ wersjê wla.
 %endif
