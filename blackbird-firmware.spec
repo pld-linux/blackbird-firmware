@@ -3,7 +3,7 @@
 %bcond_with     license_agreement       # generates package
 #
 Summary:	Firmware for the MPEG-2 encoding on cx23416 cards (cx88-blackbird)
-Summary(pl):	Firmware dla kodera MPEG-2 na kartach z uk³adem cx23416 (cx88-blackbird)
+Summary(pl.UTF-8):   Firmware dla kodera MPEG-2 na kartach z ukÅ‚adem cx23416 (cx88-blackbird)
 Name:		blackbird-firmware
 Version:	2.05.032
 %define         _rel    1
@@ -29,13 +29,13 @@ package yourself with "--with license_agreement" and install the wla
 release.
 %endif
 
-%description -l pl
-Ten pakiet zawiera firmware sprzêtowego kodera MPEG-2 obs³ugiwanych
-przez sterownik cx88-blackbird kart telewizyjnych opartych ba uk³adzie
+%description -l pl.UTF-8
+Ten pakiet zawiera firmware sprzÄ™towego kodera MPEG-2 obsÅ‚ugiwanych
+przez sterownik cx88-blackbird kart telewizyjnych opartych ba ukÅ‚adzie
 cx23416.
 %if !%{with license_agreement}
-Ten pakiet nie zawiera firmware. Powiniene¶ zbudowaæ pakiet w³asnorêcznie
-z opcj± "--with license_agreement" i zainstalowaæ wersjê wla.
+Ten pakiet nie zawiera firmware. PowinieneÅ› zbudowaÄ‡ pakiet wÅ‚asnorÄ™cznie
+z opcjÄ… "--with license_agreement" i zainstalowaÄ‡ wersjÄ™ wla.
 %endif
 
 %prep
