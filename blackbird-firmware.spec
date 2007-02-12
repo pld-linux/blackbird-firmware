@@ -3,7 +3,7 @@
 %bcond_with     license_agreement       # generates package
 #
 Summary:	Firmware for the MPEG-2 encoding on cx23416 cards (cx88-blackbird)
-Summary(pl.UTF-8):   Firmware dla kodera MPEG-2 na kartach z układem cx23416 (cx88-blackbird)
+Summary(pl.UTF-8):	Firmware dla kodera MPEG-2 na kartach z układem cx23416 (cx88-blackbird)
 Name:		blackbird-firmware
 Version:	2.05.032
 %define         _rel    1
